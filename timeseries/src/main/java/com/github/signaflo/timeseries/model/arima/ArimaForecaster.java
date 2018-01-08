@@ -101,10 +101,10 @@ class ArimaForecaster implements Forecaster {
         final int n = observations.size();
         double[] fcst = fcst(steps);
         TimePeriod timePeriod = observations.timePeriod();
+        //TODO: figure out how to stop exposing TemporalUnit (implementation detail)
         final OffsetDateTime startTime = observations.observationTimes()
                                                      .get(n - 1)
-                                                     .plus(timePeriod.periodLength() *
-                                                           timePeriod.timeUnit().unitLength(),
+                                                     .plus(timePeriod.unitLength(),
                                                            timePeriod.timeUnit().temporalUnit());
         return TimeSeries.from(timePeriod, startTime, fcst);
     }

@@ -48,12 +48,17 @@ public final class TimeSeries implements DataSet {
     private final int n;
     private final double mean;
     private final double[] series;
-    private final List<OffsetDateTime> observationTimes;
-    private final Map<OffsetDateTime, Integer> dateTimeIndex;
+    private final List<ObservationTime> observationTimes;
+    private final Map<ObservationTime, Integer> dateTimeIndex;
     private final DoubleDataSet dataSet;
 
+    private static OffsetDateTime simpleStartTime() {
+        return OffsetDateTime.of(1, 1, 1, 0, 0, 0, 0,
+                                 ZoneOffset.UTC);
+    }
+
     private TimeSeries(final double... series) {
-        this(OffsetDateTime.of(1, 1, 1, 0, 0, 0, 0, ZoneOffset.ofHours(0)), series);
+        this(simpleStartTime(), series);
     }
 
     private TimeSeries(final OffsetDateTime startTime, final double... series) {
@@ -61,7 +66,7 @@ public final class TimeSeries implements DataSet {
     }
 
     private TimeSeries(final TimePeriod timePeriod, final double... series) {
-        this(timePeriod, OffsetDateTime.of(1, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC), series);
+        this(timePeriod, simpleStartTime(), series);
     }
 
     private TimeSeries(final TimePeriod timePeriod, final CharSequence startTime, final double... series) {
@@ -92,19 +97,18 @@ public final class TimeSeries implements DataSet {
         this.dateTimeIndex = Collections.unmodifiableMap(dateTimeIndex);
     }
 
-    private TimeSeries(final TimePeriod timePeriod, final OffsetDateTime startTime, final double... series) {
+    private TimeSeries(final TimePeriod timePeriod, final ObservationTime startTime, final double... series) {
         this.dataSet = new DoubleDataSet(series);
         this.series = series.clone();
         this.n = series.length;
         this.mean = this.dataSet.mean();
         this.timePeriod = timePeriod;
-        List<OffsetDateTime> dateTimes = new ArrayList<>(series.length);
-        Map<OffsetDateTime, Integer> dateTimeIndex = new HashMap<>(series.length);
+        List<ObservationTime> dateTimes = new ArrayList<>(series.length);
+        Map<ObservationTime, Integer> dateTimeIndex = new HashMap<>(series.length);
         dateTimes.add(startTime);
         dateTimeIndex.put(startTime, 0);
-        OffsetDateTime dateTime;
         for (int i = 1; i < series.length; i++) {
-            dateTime = dateTimes.get(i - 1).plus(timePeriod.unitLength(), timePeriod.timeUnit().temporalUnit());
+            ObservationTime dateTime = dateTimes.get(i - 1).plus(timePeriod);
             dateTimes.add(dateTime);
             dateTimeIndex.put(dateTime, i);
         }
@@ -856,7 +860,8 @@ public final class TimeSeries implements DataSet {
     public String toString() {
         String newLine = System.lineSeparator();
         NumberFormat numFormatter = new DecimalFormat("#0.00");
-        return newLine + "Time Series: " + newLine + "number of observations: " + n + newLine +
+        return newLine + "Time Series: " + newLine +
+               "number of observations: " + n + newLine +
                "mean: " + numFormatter.format(mean) + newLine +
                "std: " + numFormatter.format(stdDeviation()) + newLine +
                "period: " + timePeriod;

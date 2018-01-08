@@ -67,7 +67,7 @@ class RandomWalkForecaster implements Forecaster {
     public TimeSeries computePointForecasts(int steps) {
         int n = timeSeries.size();
         TimePeriod timePeriod = timeSeries.timePeriod();
-        long amountToAdd = timePeriod.periodLength() * timePeriod.timeUnit().unitLength();
+        long amountToAdd = timePeriod.unitLength();
         final OffsetDateTime startTime = timeSeries.observationTimes().get(n - 1)
                                                    .plus(amountToAdd, timePeriod.timeUnit().temporalUnit());
         double[] forecast = new double[steps];

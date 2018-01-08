@@ -273,8 +273,11 @@ public final class TimePeriod {
      * @return the total amount of time in this time period measured in seconds.
      */
     public double totalSeconds() {
-        double thisDuration = this.timeUnit.totalDuration();
-        return thisDuration * this.periodLength;
+        return totalDuration() * this.periodLength;
+    }
+
+    private double totalDuration() {
+        return this.timeUnit().totalDuration();
     }
 
     private void validate(final long periodLength) {

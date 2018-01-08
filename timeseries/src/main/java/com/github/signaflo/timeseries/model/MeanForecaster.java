@@ -93,7 +93,7 @@ class MeanForecaster implements Forecaster {
 
         final double[] forecasted = DoubleFunctions.fill(steps, timeSeries.mean());
         final OffsetDateTime startTime = timeSeries.observationTimes().get(n - 1)
-                                                   .plus(timePeriod.periodLength() * timePeriod.timeUnit().unitLength(),
+                                                   .plus(timePeriod.unitLength(),
                                                          timePeriod.timeUnit().temporalUnit());
         return TimeSeries.from(timePeriod, startTime, forecasted);
     }
