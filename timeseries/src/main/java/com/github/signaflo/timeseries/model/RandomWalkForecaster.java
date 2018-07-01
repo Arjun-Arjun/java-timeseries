@@ -25,8 +25,8 @@
 package com.github.signaflo.timeseries.model;
 
 import com.github.signaflo.math.stats.distributions.Normal;
-import com.github.signaflo.timeseries.TimePeriod;
 import com.github.signaflo.timeseries.TimeSeries;
+import com.github.signaflo.timeseries.TimePeriod;
 import com.github.signaflo.timeseries.forecast.Forecast;
 import com.github.signaflo.timeseries.forecast.Forecaster;
 

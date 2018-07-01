@@ -24,9 +24,9 @@
 
 package com.github.signaflo.timeseries.model.arima;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import lombok.NonNull;
 import com.github.signaflo.timeseries.TimePeriod;
-import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.forecast.Forecast;
 import com.github.signaflo.timeseries.model.Model;
 
@@ -96,7 +96,7 @@ public interface Arima extends Model {
      * @return a new ARIMA model from the given observations, model order, seasonal cycle, and fitting strategy.
      */
     static Arima model(@NonNull TimeSeries observations, @NonNull ArimaOrder order, @NonNull TimePeriod seasonalCycle,
-                            @NonNull FittingStrategy fittingStrategy) {
+                       @NonNull FittingStrategy fittingStrategy) {
         return new ArimaModel(observations, order, seasonalCycle, fittingStrategy);
     }
 

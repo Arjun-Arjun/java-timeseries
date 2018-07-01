@@ -10,23 +10,23 @@ import java.time.OffsetDateTime;
  * @author Jacob Rachiele
  * Nov. 12, 2017
  */
-public class Observation<T extends Number> {
+public class Observation {
 
-    private final T value;
+    private final double value;
     private final OffsetDateTime observationPeriod;
 
     /**
      * Create a new observation with the value observed and the observation period.
      *
-     * @param value the value observed.
      * @param observationPeriod the period in which the value was observed.
+     * @param value the value observed.
      */
-    public Observation(T value, @NonNull OffsetDateTime observationPeriod) {
+    public Observation(@NonNull OffsetDateTime observationPeriod, double value) {
         this.value = value;
         this.observationPeriod = observationPeriod;
     }
 
-    public T getValue() {
+    public double getValue() {
         return this.value;
     }
 
@@ -41,7 +41,7 @@ public class Observation<T extends Number> {
 
         Observation that = (Observation) o;
 
-        if (!value.equals(that.value)) return false;
+        if (value != that.value) return false;
         return observationPeriod.equals(that.observationPeriod);
     }
 
@@ -49,7 +49,7 @@ public class Observation<T extends Number> {
     public int hashCode() {
         int result;
         long temp;
-        temp = value.hashCode();
+        temp = Double.hashCode(value);
         result = (int) (temp ^ (temp >>> 32));
         result = 31 * result + observationPeriod.hashCode();
         return result;
@@ -57,6 +57,6 @@ public class Observation<T extends Number> {
 
     @Override
     public String toString() {
-        return value.toString() + " at " + this.observationPeriod.toString();
+        return Double.toString(value) + " at " + this.observationPeriod.toString();
     }
 }

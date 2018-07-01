@@ -24,9 +24,9 @@
 
 package com.github.signaflo.timeseries.model.regression;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import org.junit.Test;
 import com.github.signaflo.timeseries.TestData;
-import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.forecast.Forecast;
 import com.github.signaflo.timeseries.model.regression.TimeSeriesLinearRegression.Seasonal;
 

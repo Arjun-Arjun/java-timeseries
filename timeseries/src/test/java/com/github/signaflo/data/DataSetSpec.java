@@ -30,11 +30,11 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.Ts;
 
 public class DataSetSpec {

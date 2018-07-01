@@ -24,12 +24,12 @@
 
 package com.github.signaflo.timeseries.model;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import org.hamcrest.MatcherAssert;
 import com.github.signaflo.timeseries.TestData;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.forecast.Forecast;
 
 import static org.junit.Assert.assertArrayEquals;

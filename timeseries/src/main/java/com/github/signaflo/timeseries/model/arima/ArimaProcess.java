@@ -1,14 +1,12 @@
 package com.github.signaflo.timeseries.model.arima;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import com.google.common.collect.EvictingQueue;
 import com.github.signaflo.math.operations.DoubleFunctions;
 import com.github.signaflo.math.stats.distributions.Distribution;
 import com.github.signaflo.math.stats.distributions.Normal;
 import com.github.signaflo.timeseries.TimePeriod;
-import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.operators.LagPolynomial;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;

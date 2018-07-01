@@ -26,12 +26,12 @@ package com.github.signaflo.timeseries.model.regression;
 
 import com.github.signaflo.data.Range;
 import com.github.signaflo.data.regression.*;
+import com.github.signaflo.timeseries.TimeSeries;
 import lombok.ToString;
 import com.github.signaflo.math.linear.doubles.Matrix;
 import com.github.signaflo.math.linear.doubles.Vector;
 import com.github.signaflo.math.operations.DoubleFunctions;
 import com.github.signaflo.timeseries.TimePeriod;
-import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.forecast.Forecast;
 import com.github.signaflo.timeseries.forecast.Forecaster;
 import com.github.signaflo.timeseries.model.Model;

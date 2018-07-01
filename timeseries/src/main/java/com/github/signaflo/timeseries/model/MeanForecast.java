@@ -23,9 +23,9 @@
  */
 package com.github.signaflo.timeseries.model;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.forecast.Forecast;
 
 /**

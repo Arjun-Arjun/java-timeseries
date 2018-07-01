@@ -25,12 +25,12 @@
 package com.github.signaflo.timeseries.model.arima;
 
 import com.github.signaflo.math.operations.DoubleFunctions;
+import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.TestData;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import com.github.signaflo.timeseries.TimePeriod;
-import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.model.arima.Arima.Constant;
 
 import static org.hamcrest.MatcherAssert.assertThat;

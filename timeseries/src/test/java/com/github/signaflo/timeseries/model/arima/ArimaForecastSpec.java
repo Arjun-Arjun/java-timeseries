@@ -24,10 +24,10 @@
 
 package com.github.signaflo.timeseries.model.arima;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.TestData;
 import org.junit.Test;
 import com.github.signaflo.timeseries.TimePeriod;
-import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.forecast.Forecast;
 
 import static org.junit.Assert.*;

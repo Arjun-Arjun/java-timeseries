@@ -28,8 +28,8 @@ import com.github.signaflo.data.regression.LinearRegressionPrediction;
 import com.github.signaflo.data.regression.MultipleLinearRegressionPredictor;
 import com.github.signaflo.math.linear.doubles.Matrix;
 import com.github.signaflo.math.linear.doubles.Vector;
-import com.github.signaflo.timeseries.TimePeriod;
 import com.github.signaflo.timeseries.TimeSeries;
+import com.github.signaflo.timeseries.TimePeriod;
 import com.github.signaflo.timeseries.forecast.Forecaster;
 
 import java.time.OffsetDateTime;
@@ -69,7 +69,7 @@ class TimeSeriesRegressionForecaster implements Forecaster {
     }
 
     private TimeSeries computeLowerPredictionBounds(List<LinearRegressionPrediction> predictions,
-                                            TimeSeries forecast, int steps) {
+                                                    TimeSeries forecast, int steps) {
         double[] bounds = new double[steps];
         for (int i = 0; i < steps; i++) {
             bounds[i] = predictions.get(i).predictionInterval().first();
@@ -78,7 +78,7 @@ class TimeSeriesRegressionForecaster implements Forecaster {
     }
 
     private TimeSeries computeUpperPredictionBounds(List<LinearRegressionPrediction> predictions,
-                                            TimeSeries forecast, int steps) {
+                                                    TimeSeries forecast, int steps) {
         double[] bounds = new double[steps];
         for (int i = 0; i < steps; i++) {
             bounds[i] = predictions.get(i).predictionInterval().second();

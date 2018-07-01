@@ -24,11 +24,11 @@
 
 package com.github.signaflo.timeseries.operators;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.TestData;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import com.github.signaflo.timeseries.TimeSeries;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;

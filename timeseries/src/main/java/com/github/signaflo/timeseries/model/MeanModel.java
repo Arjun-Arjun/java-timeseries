@@ -23,9 +23,9 @@
  */
 package com.github.signaflo.timeseries.model;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import lombok.NonNull;
 import com.github.signaflo.math.operations.DoubleFunctions;
-import com.github.signaflo.timeseries.TimeSeries;
 import com.github.signaflo.timeseries.forecast.Forecast;
 
 /**

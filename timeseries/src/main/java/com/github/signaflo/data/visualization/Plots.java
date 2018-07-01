@@ -24,6 +24,7 @@
 
 package com.github.signaflo.data.visualization;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import com.google.common.primitives.Doubles;
 import com.github.signaflo.data.DataSet;
 import org.knowm.xchart.XChartPanel;
@@ -34,7 +35,6 @@ import org.knowm.xchart.style.Styler;
 import org.knowm.xchart.style.lines.SeriesLines;
 import org.knowm.xchart.style.markers.Circle;
 import org.knowm.xchart.style.markers.SeriesMarkers;
-import com.github.signaflo.timeseries.TimeSeries;
 
 import javax.swing.*;
 import java.awt.*;

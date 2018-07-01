@@ -24,10 +24,10 @@
 
 package com.github.signaflo.timeseries.model.regression;
 
+import com.github.signaflo.timeseries.TimeSeries;
 import com.google.common.testing.EqualsTester;
 import org.junit.Test;
 import com.github.signaflo.timeseries.TestData;
-import com.github.signaflo.timeseries.TimeSeries;
 
 import static org.junit.Assert.assertArrayEquals;
 

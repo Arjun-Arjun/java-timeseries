@@ -1,8 +1,8 @@
 package com.github.signaflo.timeseries.model.regression;
 
 import com.github.signaflo.data.regression.MultipleLinearRegression;
-import com.github.signaflo.timeseries.TimePeriod;
 import com.github.signaflo.timeseries.TimeSeries;
+import com.github.signaflo.timeseries.TimePeriod;
 import com.github.signaflo.timeseries.model.Model;
 
 /**
