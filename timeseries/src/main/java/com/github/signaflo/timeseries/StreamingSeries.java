@@ -3,7 +3,6 @@ package com.github.signaflo.timeseries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.OffsetDateTime;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -18,12 +17,12 @@ public class StreamingSeries  {
         this.series = series;
     }
 
-    FiniteSeries from(OffsetDateTime start, OffsetDateTime end) {
+    FixedSeries from(Time start, Time end) {
         Predicate<Observation> selection = (Observation o) -> {
-            OffsetDateTime time = o.getObservationPeriod();
+            Time time = o.getObservationPeriod();
             return time.equals(start) || (time.isAfter(start) &&
                     time.isBefore(end) ) || time.equals(end);
         };
-        return new FiniteSeries(series.filter(selection).collect(Collectors.toList()));
+        return new FixedSeries(series.filter(selection).collect(Collectors.toList()));
     }
 }

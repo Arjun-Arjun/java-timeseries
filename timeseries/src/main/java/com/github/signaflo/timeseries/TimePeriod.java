@@ -48,7 +48,7 @@ public final class TimePeriod {
      *
      * @throws IllegalArgumentException if the given period length is less than or equal to 0.
      */
-    public TimePeriod(final TimeUnit timeUnit, final long periodLength) {
+    TimePeriod(final TimeUnit timeUnit, final long periodLength) {
         validate(periodLength);
         this.timeUnit = timeUnit;
         this.periodLength = periodLength;
@@ -224,6 +224,10 @@ public final class TimePeriod {
      */
     public static TimePeriod oneTenthSecond() {
         return new TimePeriod(TimeUnit.MILLISECOND, 100);
+    }
+
+    public static TimePeriod from(TimeUnit unit, long periodLength) {
+        return new TimePeriod(unit, periodLength);
     }
 
     /**

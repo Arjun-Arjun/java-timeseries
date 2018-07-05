@@ -2,8 +2,6 @@ package com.github.signaflo.timeseries;
 
 import lombok.NonNull;
 
-import java.time.OffsetDateTime;
-
 /**
  * An observation of a numerical event.
  *
@@ -13,7 +11,7 @@ import java.time.OffsetDateTime;
 public class Observation {
 
     private final double value;
-    private final OffsetDateTime observationPeriod;
+    private final Time observationPeriod;
 
     /**
      * Create a new observation with the value observed and the observation period.
@@ -21,7 +19,7 @@ public class Observation {
      * @param observationPeriod the period in which the value was observed.
      * @param value the value observed.
      */
-    public Observation(@NonNull OffsetDateTime observationPeriod, double value) {
+    public Observation(@NonNull Time observationPeriod, double value) {
         this.value = value;
         this.observationPeriod = observationPeriod;
     }
@@ -30,7 +28,7 @@ public class Observation {
         return this.value;
     }
 
-    public OffsetDateTime getObservationPeriod() {
+    public Time getObservationPeriod() {
         return this.observationPeriod;
     }
 

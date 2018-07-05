@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.Objects;
 
@@ -23,9 +22,9 @@ public class ObservationSpec {
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
-    private final OffsetDateTime dateTime = OffsetDateTime.of(getDefaultLocalDateTime(), getDefaultZoneOffset());
+    private final Time time = Time.year(2020);
     private final double r = 3.0;
-    private final Observation x = new Observation(dateTime, r);
+    private final Observation x = new Observation(time, r);
 
     @Test
     public void whenNullDateTimeThenNPE() {
@@ -36,26 +35,26 @@ public class ObservationSpec {
 
     @Test
     public void whenToStringThenCorrectStringReturned() {
-        String expected = "3.0 at " + dateTime.toString();
+        String expected = "3.0 at " + time.toString();
         assertThat(x.toString(), is(expected));
     }
 
     @Test
     public void whenDifferentIdentityButSameDataThenEquals() {
-        Observation y = new Observation(dateTime, r);
+        Observation y = new Observation(time, r);
         assertThat(x, is(y));
         assertThat(x.hashCode(), is(y.hashCode()));
     }
 
     @Test
     public void whenSameValueButDifferentObservationPeriodThenNotEqual() {
-        Observation y = new Observation(OffsetDateTime.now(), r);
+        Observation y = new Observation(Time.now(), r);
         assertThat(x, is(not(y)));
     }
 
     @Test
     public void whenSameObservationPeriodButDifferentValueThenNotEqual() {
-        Observation y = new Observation(dateTime, 4.5);
+        Observation y = new Observation(time, 4.5);
         assertThat(x, is(not(y)));
     }
 
