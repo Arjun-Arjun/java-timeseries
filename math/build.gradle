@@ -9,16 +9,6 @@ uploadArchives {
     }
 }
 
-task generateJavadoc(type: Javadoc) {
-    source = sourceSets.main.allJava
-    classpath = sourceSets.main.compileClasspath
-    options.memberLevel = JavadocMemberLevel.PUBLIC
-    options {
-        links "https://docs.oracle.com/javase/8/docs/api/"
-        //"https://google.github.io/guava/releases/21.0/api/docs"
-    }
-}
-
 task javadocJar(type: Jar, dependsOn: generateJavadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
@@ -28,6 +18,11 @@ task javadocJar(type: Jar, dependsOn: generateJavadoc) {
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource
+}
+
+generateJavadoc {
+    source = sourceSets.main.allJava
+    classpath = sourceSets.main.compileClasspath
 }
 
 artifacts {

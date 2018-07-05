@@ -8,6 +8,16 @@ compileTestJava {
     options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 }
 
+allprojects {
+    task generateJavadoc(type: Javadoc) {
+        options {
+            links "https://docs.oracle.com/javase/8/docs/api/"
+            memberLevel = JavadocMemberLevel.PUBLIC
+            addBooleanOption('html5', true)
+        }
+    }
+}
+
 subprojects {
     apply plugin: 'java-library'
     apply plugin: 'maven'
