@@ -1,3 +1,7 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "2.0.4"
+}
+
 uploadArchives {
     repositories {
         mavenDeployer {
@@ -34,6 +38,11 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 artifacts {
     archives sourcesJar
     archives javadocJar
+}
+
+shadowJar {
+    configurations = [project.configurations.getByName("runtimeClasspath")]
+    archiveName = "signal.jar"
 }
 
 dependencies {

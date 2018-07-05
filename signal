@@ -1,2 +1,2 @@
-jshell --class-path /build/libs/signal.jar --startup ./scripts/imports.jsh
+jshell --class-path ./timeseries/build/libs/signal.jar --startup ./scripts/imports.jsh
 

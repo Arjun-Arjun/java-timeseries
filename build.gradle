@@ -1,7 +1,4 @@
-plugins {
-    id "com.github.johnrengelman.shadow" version "2.0.3"
-    id "java-library"
-}
+apply plugin: 'java'
 
 compileJava {
     options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
@@ -70,11 +67,6 @@ subprojects {
                 }
             }
         }
-    }
-
-    shadowJar {
-        configurations = [project.configurations.getByName("runtimeClasspath")]
-        archiveName = "signal.jar"
     }
 
     dependencies {

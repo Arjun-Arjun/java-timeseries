@@ -63,6 +63,8 @@ public enum TimeUnit {
      *
      * @return the temporal unit used as the basis for this time unit.
      */
+    //TODO: We don't want to publicly expose the TemporalUnit field.
+    // Add an ObservationTime class in this package that wraps OffsetDateTime.
     public TemporalUnit temporalUnit() {
         return this.temporalUnit;
     }
