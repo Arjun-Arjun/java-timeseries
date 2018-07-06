@@ -11,25 +11,25 @@ import lombok.NonNull;
 public class Observation {
 
     private final double value;
-    private final Time observationPeriod;
+    private final Time observationTime;
 
     /**
-     * Create a new observation with the value observed and the observation period.
+     * Create a new observation with the value observed and the observation time.
      *
-     * @param observationPeriod the period in which the value was observed.
+     * @param observationTime the time at which the value was observed.
      * @param value the value observed.
      */
-    public Observation(@NonNull Time observationPeriod, double value) {
+    public Observation(@NonNull Time observationTime, double value) {
         this.value = value;
-        this.observationPeriod = observationPeriod;
+        this.observationTime = observationTime;
     }
 
     public double getValue() {
         return this.value;
     }
 
-    public Time getObservationPeriod() {
-        return this.observationPeriod;
+    public Time getObservationTime() {
+        return this.observationTime;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Observation {
         Observation that = (Observation) o;
 
         if (value != that.value) return false;
-        return observationPeriod.equals(that.observationPeriod);
+        return observationTime.equals(that.observationTime);
     }
 
     @Override
@@ -49,12 +49,12 @@ public class Observation {
         long temp;
         temp = Double.hashCode(value);
         result = (int) (temp ^ (temp >>> 32));
-        result = 31 * result + observationPeriod.hashCode();
+        result = 31 * result + observationTime.hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        return Double.toString(value) + " at " + this.observationPeriod.toString();
+        return Double.toString(value) + " at " + this.observationTime.toString();
     }
 }

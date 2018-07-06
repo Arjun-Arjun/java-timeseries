@@ -5,6 +5,9 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
+
 public class StreamingSeriesSpec {
 
     private Time start = Time.builder().build();
@@ -18,6 +21,18 @@ public class StreamingSeriesSpec {
             startTime = startTime.plus(TimePeriod.oneYear());
             x += 1.0;
         }
+    }
+
+    @Test
+    public void whenAddObservationThenAddedToNewStreamingSeries() {
+        StreamingSeries streamingSeries = new StreamingSeries(series.stream());
+        TimePeriod period = TimePeriod.from(TimeUnit.YEAR, 10L);
+        Time t = start.plus(period);
+        Observation newObs = new Observation(t, x + 1);
+        series.add(newObs);
+        streamingSeries = streamingSeries.add(newObs);
+        assertThat(streamingSeries.at(t).get(), is(newObs));
+
     }
 
     @Test

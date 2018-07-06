@@ -39,13 +39,13 @@ class FixedSeries {
         }
 
         List<Observation> buildObservationList() {
-            List<Observation> observationsList = new ArrayList<>(this.observations.length);
+            List<Observation> observationList = new ArrayList<>(this.observations.length);
             Time obsTime = startTime;
             for (double observation : observations) {
-                observationsList.add(new Observation(obsTime, observation));
+                observationList.add(new Observation(obsTime, observation));
                 obsTime = obsTime.plus(samplingInterval);
             }
-            return observationsList;
+            return observationList;
         }
     }
 

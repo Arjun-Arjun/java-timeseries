@@ -28,7 +28,7 @@ public class ObservationSpec {
 
     @Test
     public void whenNullDateTimeThenNPE() {
-        exception.expectMessage("observationPeriod");
+        exception.expectMessage("observationTime");
         exception.expect(NullPointerException.class);
         new Observation(null, r);
     }
